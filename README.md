@@ -16,7 +16,7 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 - Directional Force: Gravitational Forces
 - Direction: Direction of Force
 - Flicker Intensity: Enables Random Flicker Effect
-- Frequency: Speed of Flicker
+- Frequency: Speed of Flicker (the smaller the faster the changes)
 
 ## Videos
 ## Installation
