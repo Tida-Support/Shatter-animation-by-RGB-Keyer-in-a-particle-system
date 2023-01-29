@@ -1,0 +1,683 @@
+{
+	Tools = ordered() {
+		td_ShatterX = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				},
+			},
+			Inputs = ordered() {
+				Input2 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Input",
+					Name = "Background",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "td_Centroid1",
+					Source = "iChannel1",
+					Name = "Input",
+				},
+				pRender1_OutputMode = InstanceInput {
+					SourceOp = "pRender1",
+					Source = "OutputMode",
+					Width = 1,
+					Page = "Controls",
+					Default = 50,
+				},
+				pCustom1_Piece_Number = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Piece_Number",
+					Width = 1,
+					Page = "Controls",
+					Default = 50,
+				},
+				pCustom1_Delta = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Delta",
+					Width = 1,
+					Page = "Controls",
+					Default = 30,
+				},
+				Centroid_AspectRatio = InstanceInput {
+					SourceOp = "td_Centroid1",
+					Source = "Ratio",
+					Width = 1,
+					Page = "Controls",
+					Default = 1.77777777777778,
+				},
+				pCustom1_RandomSeed = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "RandomSeed",
+					Width = 1,
+					Page = "Controls",
+					Default = 100,
+				},
+				pCustom1_Speed = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Speed",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Sep01 = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Sep01",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				pCustom1_Expansion = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Expansion",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Forward = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Forward",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Backward = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Backward",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Spin = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Spin",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Sep02 = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Sep02",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				pDirectionalForce1_Strength = InstanceInput {
+					SourceOp = "pDirectionalForce1",
+					Source = "Force",
+					Name = "Directional Force",
+					Width = 1,
+					Page = "Controls",
+					Default = 0,
+				},
+				pDirectionalForce1_Direction = InstanceInput {
+					SourceOp = "pDirectionalForce1",
+					Source = "Direction",
+					Width = 1,
+					Page = "Controls",
+					Default = -90,
+				},
+				pCustom1_Flicker = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Flicker",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				pCustom1_Intensity = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Intensity",
+					Width = 1,
+					Page = "Controls",
+				},
+				pCustom1_Frequency = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Frequency",
+					Width = 1,
+					Page = "Controls",
+				},
+				pEmitter11_PreColor = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "PreColor",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				Perturb1_Value = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Value",
+					Width = 1,
+					Page = "Controls",
+					Default = 0,
+				},
+				Perturb1_RandomSeed = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "RandomSeed",
+					Width = 1,
+					Page = "Controls",
+					Default = 0,
+				},
+				Perturb1_Randomize = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Randomize",
+					Width = 0.385,
+					Page = "Controls",
+					Default = 0,
+				},
+				Perturb1_Strength = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Strength",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.1,
+				},
+				Perturb1_Wobble = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Wobble",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				Perturb1_Speed = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Speed",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "pRender1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { -129.333, 234.636 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 690.334, 145.909, 345.167, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -565.5, -26 }
+			},
+			Tools = ordered() {
+				pRender1 = pRender {
+					CtrlWShown = false,
+					Inputs = {
+						_MotionBlurWarning = Input { Disabled = true, },
+						GlobalOut = Input { Value = 70, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						["MaterialID.MaterialID"] = Input { Value = 1, },
+						["ObjectID.ObjectID"] = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "pDirectionalForce1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 853.5, 121.455 } },
+				},
+				pDirectionalForce1 = pDirectionalForce {
+					ID = 110,
+					CtrlWShown = false,
+					Inputs = {
+						Strength = Input {
+							Value = 0,
+							Expression = "iif((time-(pCustom1.Piece_Number+pCustom1.Delta))>0,10*Force*Force*pCustom1.Speed,0)",
+						},
+						Input = Input {
+							SourceOp = "pCustom1",
+							Source = "Output",
+						},
+						Force = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 742.833, 121.212 } },
+					UserControls = ordered() {
+						Force = {
+							INP_Default = 0.5,
+							INP_Integer = false,
+							ICS_ControlPage = "Controls",
+							LINKID_DataType = "Number",
+							INP_MinScale = 0,
+							INPID_InputControl = "SliderControl",
+							INP_MaxScale = 1,
+							LINKS_Name = "Force",
+						}
+					}
+				},
+				pEmitter1 = pEmitter {
+					ID = 111,
+					CtrlWShown = false,
+					Inputs = {
+						["BezierRgn.Polyline"] = Input {
+							Value = Polyline {
+							},
+						},
+						Number = Input {
+							Value = 0,
+							Expression = "iif(time-1<pCustom1.Piece_Number,1,0)",
+						},
+						Lifespan = Input { Value = 200, },
+						RotationControls = Input { Value = 1, },
+						AlwaysFaceCamera = Input { Value = 0, },
+						SpinControls = Input { Value = 1, },
+						Style = Input { Value = FuID { "ParticleStyleBitmap" }, },
+						["ParticleStyleBitmap.Animate"] = Input { Value = 2, },
+						["ParticleStyleBitmap.DropToolsHere"] = Input {
+							SourceOp = "td_Centroid1",
+							Source = "Output",
+						},
+						Region = Input { Value = FuID { "RectRgn" }, },
+						["ParticleStyle.ColorControls"] = Input { Value = 1, },
+						["ParticleStyle.ColorVariance"] = Input { Value = 1, },
+						["ParticleStyle.ColorOverLifeControls"] = Input { Value = 1, },
+						["ParticleStyle.ColorOverLife"] = Input {
+							SourceOp = "Perturb1",
+							Source = "Value",
+						},
+						["ParticleStyle.SizeControls"] = Input { Value = 1, },
+						["ParticleStyle.Size"] = Input { Value = 1, },
+						["ParticleStyle.SizeOverLife"] = Input {
+							SourceOp = "pEmitter1SizeOverLife",
+							Source = "Value",
+						},
+						["ParticleStyle.FadeControls"] = Input { Value = 1, },
+						["ParticleStyle.BlurOverLife"] = Input {
+							SourceOp = "pEmitter1BlurOverLife2D",
+							Source = "Value",
+						},
+						["RectRgn.Width"] = Input { Value = 0, },
+						["RectRgn.Height"] = Input { Value = 0, },
+						["RectRgn.Translate.X"] = Input {
+							SourceOp = "td_Centroid1",
+							Source = "PosX",
+						},
+						["RectRgn.Translate.Y"] = Input {
+							SourceOp = "td_Centroid1",
+							Source = "PosY",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 522.167, 122.061 } },
+				},
+				td_Centroid1 = Fuse.td_Centroid {
+					CtrlWShown = false,
+					Inputs = {
+						outHeight = Input { Value = 0.28125, },
+						colorValue = Input {
+							Value = 256,
+							Expression = "iif(time>0 and time<pCustom1.Piece_Number+1,time,256)",
+						},
+						iChannel0 = Input {
+							SourceOp = "Transform1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 412.166, 121.758 } },
+					Version = 1
+				},
+				Transform1 = Transform {
+					CtrlWShown = false,
+					ViewInfo = OperatorInfo { Pos = { 297.5, 122.97 } },
+				},
+				pCustom1 = pCustom {
+					ID = 114,
+					CtrlWShown = false,
+					Inputs = {
+						RandomSeed = Input { Value = 100, },
+						NumberIn1 = Input {
+							Value = 0.1625,
+							Expression = "Backward*t0",
+						},
+						NumberIn2 = Input {
+							Value = 0.1625,
+							Expression = "Forward*t0",
+						},
+						NumberIn3 = Input {
+							Value = 0.1625,
+							Expression = "Expansion*t0",
+						},
+						NumberIn4 = Input {
+							Value = 0.1625,
+							Expression = "Spin*t0",
+						},
+						NumberIn5 = Input {
+							Value = 0.1,
+							Expression = "RandomSeed/1000",
+						},
+						NumberIn6 = Input {
+							Value = 49,
+							Expression = "Piece_Number+Delta",
+						},
+						NumberIn7 = Input {
+							Value = 0.5,
+							Expression = "Speed",
+						},
+						NumberIn8 = Input { Value = 4.059, },
+						["Position1.X"] = Input {
+							Value = 0.095,
+							Expression = "Intensity",
+						},
+						["Position1.Y"] = Input {
+							Value = 3,
+							Expression = "Frequency",
+						},
+						PositionXExpression = Input { Value = "px+rands(-n3*n3,n3*n3,id*2*n5) ", },
+						PositionYExpression = Input { Value = "py+rands(-n3*n3,n3*n3,id*5*n5) ", },
+						PositionZExpression = Input { Value = "pz+rands(-n1*n1,n2*n2,id*10*n5)", },
+						RotationXExpression = Input { Value = "rands(-360,360,id*3*n5)*n4", },
+						RotationYExpression = Input { Value = "rands(-360,360,id*6*n5)*n4", },
+						RotationZExpression = Input { Value = "rands(-360,360,id*9*n5)*n4", },
+						SpinYExpression = Input { Value = "sy ", },
+						RedExpression = Input { Value = "r+user", },
+						GreenExpression = Input { Value = "g+user", },
+						BlueExpression = Input { Value = "b+user", },
+						MassExpression = Input { Value = "if((time-n6)>0,(time-n6)*0.5*n7*n7,0)", },
+						UserExpression = Input { Value = "p1x*noise2(id,floor(time/p1y))", },
+						Input = Input {
+							SourceOp = "pEmitter1",
+							Source = "Output",
+						},
+						Piece_Number = Input { Value = 50, },
+						Delta = Input { Value = 30, },
+						t0 = Input {
+							Value = 0.325,
+							Expression = "iif((time-(Piece_Number+Delta))>0,time-(Piece_Number+Delta),0)*0.1*Speed*Speed",
+						},
+						Intensity = Input { Value = 0, },
+						Frequency = Input { Value = 3, },
+						PreColor = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 632.167, 121.212 } },
+					UserControls = ordered() {
+						Sep01 = {
+							IC_Visible = true,
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							ICS_ControlPage = "Numbers",
+							INPID_InputControl = "SeparatorControl",
+							INP_Passive = true,
+							LINKS_ID = "Sep01",
+							LINKS_Name = "Sep01",
+						},
+						Piece_Number = {
+							ICD_Width = "1",
+							INP_Integer = true,
+							LINKS_ID = "Piece_Number",
+							LINKS_Name = "Piece Number",
+							ICD_Center = "0",
+							INP_Default = "0",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "SliderControl",
+							LINKID_DataType = "Number",
+							INP_MaxScale = "255",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						Delta = {
+							ICD_Width = "1",
+							INP_Integer = true,
+							LINKS_ID = "Delta",
+							LINKS_Name = "Delta",
+							ICD_Center = "0",
+							INP_Default = "0",
+							INP_UserData3 = 999,
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Passive = false,
+							INP_MaxScale = "100",
+							IC_Visible = true,
+						},
+						Sep02 = {
+							IC_Visible = true,
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							ICS_ControlPage = "Numbers",
+							INPID_InputControl = "SeparatorControl",
+							INP_Passive = true,
+							LINKS_ID = "Sep02",
+							LINKS_Name = "Sep02",
+						},
+						Expansion = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Expansion",
+							LINKS_Name = "XY-Expansion",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_MaxScale = "1",
+							IC_Visible = true,
+						},
+						Forward = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Forward",
+							LINKS_Name = "Z-Forward",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							INP_UserData3 = 999,
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_MaxScale = "1",
+							IC_Visible = true,
+						},
+						Backward = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Backward",
+							LINKS_Name = "Z-Backward",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "SliderControl",
+							LINKID_DataType = "Number",
+							INP_MaxScale = "1",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						Spin = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Spin",
+							LINKS_Name = "Spin",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							INP_MaxScale = "1",
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						Sep03 = {
+							IC_Visible = true,
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							ICS_ControlPage = "Numbers",
+							INPID_InputControl = "SeparatorControl",
+							INP_Passive = true,
+							LINKS_ID = "Sep03",
+							LINKS_Name = "Sep03",
+						},
+						Speed = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Speed",
+							LINKS_Name = "Speed",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							INP_MaxScale = "1",
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						AnimTime = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "AnimTime",
+							LINKS_Name = "Anim_Time",
+							ICD_Center = "0",
+							INP_Default = "0",
+							INP_UserData3 = 999,
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_MaxScale = "360",
+							IC_Visible = true,
+						},
+						t0 = {
+							LINKS_Name = "t0",
+							INP_MinScale = 0,
+							LINKID_DataType = "Number",
+							ICS_ControlPage = "Numbers",
+							INPID_InputControl = "SliderControl",
+							INP_Integer = false,
+							INP_MaxScale = 1,
+							INP_Default = 0,
+						},
+						Flicker = {
+							LBLC_DropDownButton = true,
+							LINKS_ID = "Flicker",
+							LBLC_NumInputs = 2,
+							INP_Default = 1,
+							LINKS_Name = "Flicker",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = true,
+							INPID_InputControl = "LabelControl",
+							IC_Visible = true,
+						},
+						Intensity = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Intensity",
+							LINKS_Name = "Intensity",
+							ICD_Center = "0.1",
+							INP_Default = "0.1",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "SliderControl",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = false,
+							INP_MaxScale = "1",
+							IC_Visible = true,
+						},
+						Frequency = {
+							ICD_Width = "1",
+							INP_Integer = true,
+							LINKS_ID = "Frequency",
+							LINKS_Name = "Frequency",
+							INP_MaxScale = "10",
+							INP_Default = "1",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "ScrewControl",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = false,
+							ICD_Center = "1",
+							IC_Visible = true,
+						},
+						PreColor = {
+							LBLC_DropDownButton = true,
+							LINKS_ID = "PreColor",
+							LBLC_NumInputs = 7,
+							INP_Default = 1,
+							LINKS_Name = "Pre Color Perturbation",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = true,
+							INPID_InputControl = "LabelControl",
+							IC_Visible = true,
+						}
+					}
+				}
+			},
+		},
+		Perturb1 = PerturbGradient {
+			CtrlWZoom = false,
+			Inputs = {
+				Value = Input {
+					Value = Gradient {
+						Colors = {
+							[0] = { 1, 1, 1, 1 }
+						}
+					},
+				},
+				RandomSeed = Input { Value = 6710, },
+				Strength = Input { Value = 0, },
+				Wobble = Input { Value = 5.04, },
+				Speed = Input { Value = 6.61, },
+			},
+		},
+		pEmitter1SizeOverLife = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				}
+			},
+		},
+		pEmitter1BlurOverLife2D = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "td_ShatterX"
+}

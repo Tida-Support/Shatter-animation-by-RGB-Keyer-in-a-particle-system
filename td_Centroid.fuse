@@ -1,0 +1,301 @@
+
+--[[--
+
+License: 
+Author: 
+
+Changes:
+v0.1 
+v0.2
+v0.3
+
+--]]--
+
+
+FuRegisterClass("td_Centroid", CT_Tool, {
+	REG_OpNoMask = true,
+	REG_NoBlendCtrls = true,
+	REG_NoObjMatCtrls = true,
+	REG_NoMotionBlurCtrls = true,
+	REG_NoPreCalcProcess = false,
+	REG_TimeVariant     = true,			-- required to disable caching of the current time parameter
+	REGB_Temporal 		= true,			-- ensures reliability in Resolve 15
+	REG_Fuse_NoEdit     = false,
+	REG_Fuse_NoReload   = false,
+
+	REGS_Category       = "Particles",
+	REGS_OpIconString   = "Centroid",
+	REGS_OpDescription  = "Centroid for Shatter application",
+	REGS_Name           = "td_Centroid",	
+	REGS_Company           = "Tida",
+	REGS_URL               = "https://www.steakunderwater.com/wesuckless/",
+	REG_Version            = 000001,
+	})
+	
+	local PosXOld = 0
+	local PosYOld = 0
+	local SumXOld = 0
+	local SumYOld = 0	
+	local PosX = 0
+	local PosY = 0
+
+	local SumX = 0
+	local SumY = 0
+	local dst
+	
+ 
+td_CentroidParams = [[
+
+
+	float iC0_Width;
+	float iC0_Height;
+
+	
+	float Center[2];
+	float Angle;
+	float Scale;
+	float Ratio;
+	float colorValue;
+	
+
+	float Control01;
+    float Control02;
+    float Control03;
+
+]]
+ 
+
+
+td_CentroidKernel = [[
+
+	
+  __KERNEL__ void td_CentroidKernel(__CONSTANTREF__ td_CentroidParams *params, __TEXTURE2D__ iChannel0 , __TEXTURE2D__ iChannel1, __TEXTURE2D_WRITE__ dst)
+    {
+		
+    DEFINE_KERNEL_ITERATORS_XY(x, y);
+	if (x < params->iC0_Width  && y < params->iC0_Height) {
+	    float Ratio = params->Ratio;
+		float colorValue = params->colorValue;
+
+        float Control01 = params->Control01;
+        float Control02 = params->Control02;
+        float Control03 = params->Control03;
+
+		float W = params->iC0_Width;
+		float H = params->iC0_Height;
+		float PX = (params->Center[0]-0.5f)*params->iC0_Width;
+		float PY = (params->Center[1]-0.5f)*params->iC0_Height;
+		float4 iC0 = to_float4_s(0.0f); 
+		float4 iC1 = _tex2DVecN(iChannel0,(x+PX),(y+PY),15);
+		if (x+PX > 0.0f && y+PY > 0.0f && x+PX < W && y+PY < H) {iC0  = _tex2DVecN(iChannel1,(x+PX),(y+PY),15);}	
+		if (_floor(iC0.x * 255.0f) == _floor(colorValue)) 
+			 {iC0 = to_float4_s(1.0f);} 
+		else 
+			{iC0 = to_float4_s(0.0f);}
+
+		_tex2DVec4Write(dst, x, y, iC0*iC1);
+	}			
+    }
+]]
+
+
+
+function Create()
+
+		
+	InThresholdValue = self:AddInput("Threshold Value", "ThresholdValue", {
+		LINKID_DataType 	= "Number",
+		INPID_InputControl 	= "SliderControl",
+		INP_Default 		= 1.0,
+		INP_MinScale 		= 0.0,
+		INP_MaxScale 		= 5.0,		
+	})		
+	
+
+	InRatio = self:AddInput("Aspect Ratio", "Ratio", {
+		LINKID_DataType 	= "Number",
+		INPID_InputControl 	= "SliderControl",
+		INP_Default 		= 16/9,
+		INP_MinScale 		= 0.3,
+		INP_MaxScale 		= 1.0,		
+	})				
+	
+			
+
+	IncolorValue = self:AddInput("Red Filter", "colorValue", {
+		LINKID_DataType 	= "Number",
+		INPID_InputControl 	= "SliderControl",
+		INP_Default 		= 1,
+		INP_MinScale 		= 0,
+		INP_MaxScale 		= 256,	
+        INP_Integer = true,
+        INP_MinAllowed = 1,
+		INP_MaxAllowed = 256,   			
+	})	
+
+    InControl01 = self:AddInput("Control01", "Control01", {
+        LINKID_DataType 	= "Number",
+        INPID_InputControl 	= "SliderControl",
+        INP_Default 		= 0.5,
+        INP_MinScale 		= 0.0,
+        INP_MaxScale 		= 1.0,
+		IC_Visible = false
+
+    })
+    InControl02 = self:AddInput("Control02", "Control02", {
+        LINKID_DataType 	= "Number",
+        INPID_InputControl 	= "SliderControl",
+        INP_Default 		= 0.5,
+        INP_MinScale 		= 0.0,
+        INP_MaxScale 		= 1.0,
+		IC_Visible = false
+    })
+    InControl03 = self:AddInput("Control03", "Control03", {
+        LINKID_DataType 	= "Number",
+        INPID_InputControl 	= "SliderControl",
+        INP_Default 		= 0.5,
+        INP_MinScale 		= 0.0,
+        INP_MaxScale 		= 1.0,
+		IC_Visible = false
+    })
+
+	InChannel0 = self:AddInput("iChannel0", "iChannel0", {
+		LINKID_DataType = "Image",
+		LINK_Main = 1,
+		INP_Required = true
+	})
+
+	InChannel1 = self:AddInput("iChannel1", "iChannel1", {
+		LINKID_DataType = "Image",
+		LINK_Main = 2,
+		INP_Required = true
+	})
+	
+	
+	 	
+		
+	OutPnt = self:AddOutput("PntXY", "PntXY", {
+		LINKID_DataType = "Point",
+	})	
+	
+	OutX = self:AddOutput("PosX", "PosX", {
+		LINKID_DataType = "Number",
+	})
+
+	OutY = self:AddOutput("PosY", "PosY", {
+		LINKID_DataType = "Number",
+	})
+	
+    OutImage = self:AddOutput("Output", "Output", {
+        LINKID_DataType 	= "Image",
+        LINK_Main 			= 3,
+    })
+		
+end
+
+
+
+
+local lastreqtime = -2
+
+function PreCalcProcess(req)
+	local img = InChannel0:GetValue(req) 
+	local out = img:CopyOf()
+	OutPointGl = Point(PosX,PosY)
+	OutPnt:Set(req,OutPointGl)
+ 	OutX:Set(req,tonumber(PosX))
+	OutY:Set(req,tonumber(PosY))
+	OutImage:Set(req, out)	
+	
+end
+
+function Process(req)
+	SumXOld = SumX
+	SumYOld = SumY
+    iChannel0 = InChannel0:GetValue(req)
+    iChannel1 = InChannel1:GetValue(req)	
+
+	Control01  	= InControl01:GetValue(req).Value
+	Control02  	= InControl02:GetValue(req).Value
+	Control03  	= InControl03:GetValue(req).Value
+
+	--iChannel1 = InChannel1:GetSource(1, REQF_SecondaryTime)    
+			
+	local p = Pixel()
+	local sumX = 0;
+	local sumY = 0;
+	local num  = 0;	
+	
+	colorValue = math.floor(IncolorValue:GetValue(req).Value)
+
+		for y=0,iChannel1.Height-1 do
+			if self.Status ~= "OK" then break end
+			
+			for x=0,iChannel1.Width-1 do
+				iChannel1:GetPixel(x,y, p)
+				--local pLuma = p.R * 0.2126 + p.G * 0.7152 + p.B * 0.0722
+				local pLuma = 0 --(p.R + p.G + p.B)/3.0
+				if math.floor(p.R*255+0.5) == colorValue then pLuma = p.R end
+				sumX = sumX + x * pLuma
+				sumY = sumY + y * pLuma
+				num = num + pLuma						
+			end
+		end		
+	
+	Ratio  	= InRatio:GetValue(req).Value	
+
+	SumX = sumX / num / (iChannel1.DataWindow:Width() )
+    SumY = sumY / num / (iChannel1.DataWindow:Height())
+		
+	if num < math.pow(10, InThresholdValue:GetValue(req).Value) then 
+		SumX = 0.5 
+		SumY = 0.5 
+	end
+	
+   
+    dst = Image{ IMG_Like = iChannel0, IMG_DeferAlloc = true, IMG_Depth = 7 } 
+ 
+    local node = DVIPComputeNode(req, "td_CentroidKernel", td_CentroidKernel, "td_CentroidParams", td_CentroidParams)
+		
+		if (lastreqtime ~= req.Time - 1) then
+			params = node:GetParamBlock(td_CentroidParams)
+		end
+		lastreqtime = req.Time		
+		-----------------
+		params.iC0_Width  	= iChannel1.DataWindow:Width()
+		params.iC0_Height 	= iChannel1.DataWindow:Height()	
+		params.Center[0] 	= SumX 
+		params.Center[1]	= SumY 
+		params.Ratio  		= InRatio:GetValue(req).Value	
+		params.colorValue   = colorValue
+
+        params.Control01  	= InControl01:GetValue(req).Value
+        params.Control02  	= InControl02:GetValue(req).Value
+        params.Control03  	= InControl03:GetValue(req).Value
+						
+		-------------
+
+
+    node:SetParamBlock(params)
+    node:AddInput("iChannel0", iChannel0)	
+    node:AddInput("iChannel1", iChannel1)
+    node:AddOutput("dst", dst)
+ 
+    local ok = node:RunSession(req)
+ 
+    if not ok then
+        dst = nil
+		dump(node:GetErrorLog())
+    end
+
+	PosYOld = PosY
+	PosXOld = PosX
+	PosX = (SumX-0.5)
+	PosY = (SumY-0.5)/Ratio
+	OutPointGl = Point(PosX,PosY)
+	OutPnt:Set(req,OutPointGl)
+ 	OutX:Set(req,tonumber(PosX))
+	OutY:Set(req,tonumber(PosY))
+    OutImage:Set(req, dst)
+	dstold = dst
+end	
