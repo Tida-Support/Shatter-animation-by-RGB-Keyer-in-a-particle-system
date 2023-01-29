@@ -3,6 +3,7 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 
 ### Inputs:
 Yellow Input: Image Input
+
 Green Input: Mask Input
 
 ### Controls:
