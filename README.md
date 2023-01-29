@@ -3,7 +3,7 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 
 ### Inputs:
 - Yellow Input: Image Input
-- Green Input: Mask Input
+- Green Input: Mask Input; the Mask needs to be created with increasing red color values (1,2,3,4...Piece Number) for the region.
 
 ### Controls:
 - Output Mode: Choose between 3D or 2D space. 
