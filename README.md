@@ -1,4 +1,4 @@
-# Shatter-animation-by-RGB-Keyer-in-a-particle-system
+# Shatter animation by RGB Keyer in a particle system
 The Shatter effect works by means of the td_ShatterX.Setting Macro, which contains the RGBKeyer.fuse Node. An image is sliced into pieces by means of a mask and can break apart in a 3D animation. 
 
 ### Inputs:
