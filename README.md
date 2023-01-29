@@ -14,7 +14,7 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 - Speed: Overall speed of expansion and spining process
 - XY-Expansion/Z-Forward/Z-Backward/Spin: Speed of each movement
 - Directional Force: Gravitational Forces
-- Direction: Direction of Force
+- Direction: Direction of Force (-90: downwards, 90: upwards)
 - Flicker Intensity: Enables Random Flicker Effect
 - Frequency: Speed of Flicker (the smaller the faster the changes)
 
