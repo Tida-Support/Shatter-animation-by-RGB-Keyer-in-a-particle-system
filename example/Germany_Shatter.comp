@@ -45,7 +45,7 @@ Composition {
 			Clips = {
 				Clip {
 					ID = "Clip1",
-					Filename = "/Users/martinhusmann/Documents/Media/Project/2023 Experimental/map-of-germany-german-Maske.png",
+					Filename = "/Users/UserName/Documents/Media/Project/2023 Experimental/map-of-germany-german-Maske.png",
 					FormatID = "PNGFormat",
 					StartFrame = -1,
 					LengthSetManually = true,
@@ -1641,7 +1641,7 @@ Composition {
 			FrameFormat = {
 				GuideRatio = 1.77777777777778,
 			},
-			LastFile = "/Users/martinhusmann/Documents/Media/Project/2021-Experimental/pexels-allan-mas-5362370.mp4",
+			LastFile = "/Users/UserName/Documents/Media/Project/2021-Experimental/pexels-allan-mas-5362370.mp4",
 			Unsorted = {
 				GlobalEnd = 250,
 				RenderSettings = {
@@ -1690,7 +1690,7 @@ Composition {
 					Top = 74
 				}
 			},
-			LastLUTFile = "/Users/martinhusmann/Documents/Media/Project/2021-Experimental/CStaleShaper/MidLow.alut",
+			LastLUTFile = "/Users/UserName/Documents/Media/Project/2021-Experimental/CStaleShaper/MidLow.alut",
 			QuickTime = {
 			},
 		}
