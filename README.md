@@ -31,6 +31,6 @@ https://www.steakunderwater.com/wesuckless/viewtopic.php?t=5182
 [![Curved Arrow](https://img.youtube.com/vi/d3qIP1O7GM8/0.jpg)](https://www.youtube.com/watch?v=d3qIP1O7GM8)
 
 ## Installation
-- Fuses generally work only with integrated Fusion of Davinci Resolve Studio or Fusion Studio Standalone. It will not work with the free version of Davinci Resolve. Please save the td_Centroid.fuse file to the assigned folder for Fuses. The Fese is essential for the Macro.
+- Fuses generally work only with integrated Fusion of Davinci Resolve Studio or Fusion Studio Standalone. It will not work with the free version of Davinci Resolve. Please save the td_Centroid.fuse file to the assigned folder for Fuses. The existence of the Fuse is essential for running the Macro.
 - Please save the td_ShatterX.Setting file to the assigned folder for Macros.
 
