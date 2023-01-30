@@ -9,7 +9,7 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 - Output Mode: Choose between 3D or 2D space. 
 - Piece Number: Choose the number of regions which are given through the Mask
 - Delta: Number of Frames between Finish of Piece Build Up procedure and subsequent Start of Animation (Rest Time)
-- Aspect Ratio: Set the Aspect Ratio of the Mask to the Aspect Ratio of the Image
+- Aspect Ratio: Set the Aspect Ratio of the Image to the Aspect Ratio of the Mask (Example: 2376/2560 = 0.92815)
 - Random Seed: Changes sequences randomly   
 - Speed: Overall speed of expansion and spinning process
 - XY-Expansion/Z-Forward/Z-Backward/Spin: Speed of each movement
