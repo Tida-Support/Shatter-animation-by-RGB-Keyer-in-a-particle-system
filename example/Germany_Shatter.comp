@@ -1,0 +1,1699 @@
+Composition {
+	CurrentTime = 250,
+	RenderRange = { 0, 250 },
+	GlobalRange = { 0, 250 },
+	CurrentID = 46,
+	HiQ = true,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion Studio 18.1 build 46",
+	SavedOutputs = 2,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		Loader2 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "Comp:/map-of-germany-german.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 0
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.PNGFormat.PostMultiply"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 385, 148.5 } },
+		},
+		Loader1 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "/Users/martinhusmann/Documents/Media/Project/2023 Experimental/map-of-germany-german-Maske.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 0,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 0
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				["Clip1.PNGFormat.PostMultiply"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, 82.5 } },
+		},
+		Background1 = Background {
+			Inputs = {
+				GlobalOut = Input { Value = 250, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				TopLeftRed = Input { Value = 1, },
+				TopLeftGreen = Input { Value = 1, },
+				TopLeftBlue = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, 82.5 } },
+		},
+		pEmitter1SizeOverLife = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				}
+			},
+		},
+		td_ShatterX = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				},
+			},
+			Inputs = ordered() {
+				Input2 = InstanceInput {
+					SourceOp = "Transform1",
+					Source = "Input",
+					Name = "Background",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "td_Centroid1",
+					Source = "iChannel1",
+					Name = "Input",
+				},
+				pRender1_OutputMode = InstanceInput {
+					Disabled = true,
+					SourceOp = "pRender1",
+					Source = "OutputMode",
+					Width = 1,
+					Page = "Controls",
+					Default = 50,
+				},
+				pCustom1_Piece_Number = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Piece_Number",
+					Width = 1,
+					Page = "Controls",
+					Default = 50,
+				},
+				pCustom1_Delta = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Delta",
+					Width = 1,
+					Page = "Controls",
+					Default = 30,
+				},
+				Centroid_AspectRatio = InstanceInput {
+					SourceOp = "td_Centroid1",
+					Source = "Ratio",
+					Width = 1,
+					Page = "Controls",
+					Default = 1.77777777777778,
+				},
+				pCustom1_RandomSeed = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "RandomSeed",
+					Width = 1,
+					Page = "Controls",
+					Default = 100,
+				},
+				pCustom1_Speed = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Speed",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Sep01 = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Sep01",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				pCustom1_Expansion = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Expansion",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Forward = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Forward",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Backward = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Backward",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Spin = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Spin",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.5,
+				},
+				pCustom1_Sep02 = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Sep02",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				pDirectionalForce1_Strength = InstanceInput {
+					SourceOp = "pDirectionalForce1",
+					Source = "Force",
+					Name = "Directional Force",
+					Width = 1,
+					Page = "Controls",
+					Default = 0,
+				},
+				pDirectionalForce1_Direction = InstanceInput {
+					SourceOp = "pDirectionalForce1",
+					Source = "Direction",
+					Width = 1,
+					Page = "Controls",
+					Default = -90,
+				},
+				pCustom1_Flicker = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Flicker",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				pCustom1_Intensity = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Intensity",
+					Width = 1,
+					Page = "Controls",
+				},
+				pCustom1_Frequency = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "Frequency",
+					Width = 1,
+					Page = "Controls",
+				},
+				pEmitter11_PreColor = InstanceInput {
+					SourceOp = "pCustom1",
+					Source = "PreColor",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				Perturb1_Value = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Value",
+					Width = 1,
+					Page = "Controls",
+					Default = 0,
+				},
+				Perturb1_RandomSeed = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "RandomSeed",
+					Width = 1,
+					Page = "Controls",
+					Default = 0,
+				},
+				Perturb1_Randomize = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Randomize",
+					Width = 0.385,
+					Page = "Controls",
+					Default = 0,
+				},
+				Perturb1_Strength = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Strength",
+					Width = 1,
+					Page = "Controls",
+					Default = 0.1,
+				},
+				Perturb1_Wobble = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Wobble",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				},
+				Perturb1_Speed = InstanceInput {
+					SourceOp = "Perturb1",
+					Source = "Speed",
+					Width = 1,
+					Page = "Controls",
+					Default = 1,
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "pRender1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 495, 148.5 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 690.334, 145.909, 345.167, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -565.5, -26 }
+			},
+			Tools = ordered() {
+				pRender1 = pRender {
+					CtrlWShown = false,
+					Inputs = {
+						_MotionBlurWarning = Input { Disabled = true, },
+						GlobalOut = Input { Value = 250, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						OutputMode = Input { Disabled = true, },
+						["MaterialID.MaterialID"] = Input { Value = 1, },
+						["ObjectID.ObjectID"] = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "pDirectionalForce1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 853.5, 121.455 } },
+				},
+				pDirectionalForce1 = pDirectionalForce {
+					ID = 28,
+					CtrlWShown = false,
+					Inputs = {
+						Strength = Input {
+							Value = 0,
+							Expression = "iif((time-(pCustom1.Piece_Number+pCustom1.Delta))>0,10*Force*Force*pCustom1.Speed,0)",
+						},
+						Input = Input {
+							SourceOp = "pCustom1",
+							Source = "Output",
+						},
+						Force = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 742.833, 121.212 } },
+					UserControls = ordered() {
+						Force = {
+							INP_Default = 0.5,
+							INP_Integer = false,
+							ICS_ControlPage = "Controls",
+							LINKID_DataType = "Number",
+							INP_MinScale = 0,
+							INPID_InputControl = "SliderControl",
+							INP_MaxScale = 1,
+							LINKS_Name = "Force",
+						}
+					}
+				},
+				pEmitter1 = pEmitter {
+					ID = 29,
+					CtrlWShown = false,
+					Inputs = {
+						["BezierRgn.Polyline"] = Input {
+							Value = Polyline {
+							},
+						},
+						Number = Input {
+							Value = 0,
+							Expression = "iif(time-1<pCustom1.Piece_Number,1,0)",
+						},
+						Lifespan = Input { Value = 200, },
+						RotationControls = Input { Value = 1, },
+						AlwaysFaceCamera = Input { Value = 0, },
+						SpinControls = Input { Value = 1, },
+						Style = Input { Value = FuID { "ParticleStyleBitmap" }, },
+						["ParticleStyleBitmap.Animate"] = Input { Value = 2, },
+						["ParticleStyleBitmap.DropToolsHere"] = Input {
+							SourceOp = "td_Centroid1",
+							Source = "Output",
+						},
+						Region = Input { Value = FuID { "RectRgn" }, },
+						["ParticleStyle.ColorControls"] = Input { Value = 1, },
+						["ParticleStyle.ColorVariance"] = Input { Value = 1, },
+						["ParticleStyle.ColorOverLifeControls"] = Input { Value = 1, },
+						["ParticleStyle.ColorOverLife"] = Input {
+							SourceOp = "Perturb1",
+							Source = "Value",
+						},
+						["ParticleStyle.SizeControls"] = Input { Value = 1, },
+						["ParticleStyle.Size"] = Input { Value = 1, },
+						["ParticleStyle.SizeOverLife"] = Input {
+							SourceOp = "pEmitter1SizeOverLife",
+							Source = "Value",
+						},
+						["ParticleStyle.FadeControls"] = Input { Value = 1, },
+						["ParticleStyle.BlurOverLife"] = Input {
+							SourceOp = "pEmitter1BlurOverLife2D",
+							Source = "Value",
+						},
+						["RectRgn.Width"] = Input { Value = 0, },
+						["RectRgn.Height"] = Input { Value = 0, },
+						["RectRgn.Translate.X"] = Input {
+							SourceOp = "td_Centroid1",
+							Source = "PosX",
+						},
+						["RectRgn.Translate.Y"] = Input {
+							SourceOp = "td_Centroid1",
+							Source = "PosY",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 522.167, 122.061 } },
+				},
+				td_Centroid1 = Fuse.td_Centroid {
+					CtrlWShown = false,
+					Inputs = {
+						outHeight = Input { Value = 0.28125, },
+						Ratio = Input { Value = 0.928125, },
+						colorValue = Input {
+							Value = 256,
+							Expression = "iif(time>0 and time<pCustom1.Piece_Number+1,time,256)",
+						},
+						iChannel0 = Input {
+							SourceOp = "Transform1",
+							Source = "Output",
+						},
+						iChannel1 = Input {
+							SourceOp = "Loader1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 412.166, 121.758 } },
+					Version = 1
+				},
+				Transform1 = Transform {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Loader2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 297.5, 122.97 } },
+				},
+				pCustom1 = pCustom {
+					ID = 32,
+					CtrlWShown = false,
+					Inputs = {
+						RandomSeed = Input { Value = 100, },
+						NumberIn1 = Input {
+							Value = 1.75,
+							Expression = "Backward*t0",
+						},
+						NumberIn2 = Input {
+							Value = 1.75,
+							Expression = "Forward*t0",
+						},
+						NumberIn3 = Input {
+							Value = 1.75,
+							Expression = "Expansion*t0",
+						},
+						NumberIn4 = Input {
+							Value = 1.75,
+							Expression = "Spin*t0",
+						},
+						NumberIn5 = Input {
+							Value = 0.1,
+							Expression = "RandomSeed/1000",
+						},
+						NumberIn6 = Input {
+							Value = 110,
+							Expression = "Piece_Number+Delta",
+						},
+						NumberIn7 = Input {
+							Value = 0.5,
+							Expression = "Speed",
+						},
+						NumberIn8 = Input { Value = 4.059, },
+						["Position1.X"] = Input { Expression = "Intensity", },
+						["Position1.Y"] = Input {
+							Value = 3,
+							Expression = "Frequency",
+						},
+						PositionXExpression = Input { Value = "px+rands(-n3*n3,n3*n3,id*2*n5) ", },
+						PositionYExpression = Input { Value = "py+rands(-n3*n3,n3*n3,id*5*n5) ", },
+						PositionZExpression = Input { Value = "pz+rands(-n1*n1,n2*n2,id*10*n5)", },
+						RotationXExpression = Input { Value = "rands(-360,360,id*3*n5)*n4", },
+						RotationYExpression = Input { Value = "rands(-360,360,id*6*n5)*n4", },
+						RotationZExpression = Input { Value = "rands(-360,360,id*9*n5)*n4", },
+						SpinYExpression = Input { Value = "sy ", },
+						RedExpression = Input { Value = "r+user", },
+						GreenExpression = Input { Value = "g+user", },
+						BlueExpression = Input { Value = "b+user", },
+						MassExpression = Input { Value = "if((time-n6)>0,(time-n6)*0.5*n7*n7,0)", },
+						UserExpression = Input { Value = "p1x*noise2(id,floor(time/p1y))", },
+						Input = Input {
+							SourceOp = "pEmitter1",
+							Source = "Output",
+						},
+						Piece_Number = Input { Value = 25, },
+						Delta = Input { Value = 85, },
+						t0 = Input {
+							Value = 3.5,
+							Expression = "iif((time-(Piece_Number+Delta))>0,time-(Piece_Number+Delta),0)*0.1*Speed*Speed",
+						},
+						Intensity = Input { Value = 0, },
+						Frequency = Input { Value = 3, },
+						PreColor = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 632.167, 121.212 } },
+					UserControls = ordered() {
+						Sep01 = {
+							IC_Visible = true,
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							LINKS_ID = "Sep01",
+							INPID_InputControl = "SeparatorControl",
+							INP_Passive = true,
+							ICS_ControlPage = "Numbers",
+							LINKS_Name = "Sep01",
+						},
+						Piece_Number = {
+							ICD_Width = "1",
+							INP_Integer = true,
+							LINKS_ID = "Piece_Number",
+							LINKS_Name = "Piece Number",
+							ICD_Center = "0",
+							INP_Default = "0",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "SliderControl",
+							LINKID_DataType = "Number",
+							INP_MaxScale = "255",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						Delta = {
+							ICD_Width = "1",
+							INP_Integer = true,
+							LINKS_ID = "Delta",
+							LINKS_Name = "Delta",
+							ICD_Center = "0",
+							INP_Default = "0",
+							INP_UserData3 = 999,
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ScrewControl",
+							INP_Passive = false,
+							INP_MaxScale = "100",
+							IC_Visible = true,
+						},
+						Sep02 = {
+							IC_Visible = true,
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							LINKS_ID = "Sep02",
+							INPID_InputControl = "SeparatorControl",
+							INP_Passive = true,
+							ICS_ControlPage = "Numbers",
+							LINKS_Name = "Sep02",
+						},
+						Expansion = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Expansion",
+							LINKS_Name = "XY-Expansion",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_MaxScale = "1",
+							IC_Visible = true,
+						},
+						Forward = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Forward",
+							LINKS_Name = "Z-Forward",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							INP_UserData3 = 999,
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_MaxScale = "1",
+							IC_Visible = true,
+						},
+						Backward = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Backward",
+							LINKS_Name = "Z-Backward",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "SliderControl",
+							LINKID_DataType = "Number",
+							INP_MaxScale = "1",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						Spin = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Spin",
+							LINKS_Name = "Spin",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							INP_MaxScale = "1",
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						Sep03 = {
+							IC_Visible = true,
+							INP_UserData3 = 999,
+							LINKID_DataType = "Number",
+							LINKS_ID = "Sep03",
+							INPID_InputControl = "SeparatorControl",
+							INP_Passive = true,
+							ICS_ControlPage = "Numbers",
+							LINKS_Name = "Sep03",
+						},
+						Speed = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Speed",
+							LINKS_Name = "Speed",
+							ICD_Center = "0.5",
+							INP_Default = "0.5",
+							INP_MaxScale = "1",
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_UserData3 = 999,
+							IC_Visible = true,
+						},
+						AnimTime = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "AnimTime",
+							LINKS_Name = "Anim_Time",
+							ICD_Center = "0",
+							INP_Default = "0",
+							INP_UserData3 = 999,
+							INP_MinScale = "0",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_Passive = false,
+							INP_MaxScale = "360",
+							IC_Visible = true,
+						},
+						t0 = {
+							LINKS_Name = "t0",
+							INP_MinScale = 0,
+							LINKID_DataType = "Number",
+							ICS_ControlPage = "Numbers",
+							INPID_InputControl = "SliderControl",
+							INP_Integer = false,
+							INP_MaxScale = 1,
+							INP_Default = 0,
+						},
+						Flicker = {
+							LBLC_DropDownButton = true,
+							LINKS_ID = "Flicker",
+							LBLC_NumInputs = 2,
+							INP_Default = 1,
+							LINKS_Name = "Flicker",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = true,
+							INPID_InputControl = "LabelControl",
+							IC_Visible = true,
+						},
+						Intensity = {
+							ICD_Width = "1",
+							INP_Integer = false,
+							LINKS_ID = "Intensity",
+							LINKS_Name = "Intensity",
+							ICD_Center = "0.1",
+							INP_Default = "0.1",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "SliderControl",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = false,
+							INP_MaxScale = "1",
+							IC_Visible = true,
+						},
+						Frequency = {
+							ICD_Width = "1",
+							INP_Integer = true,
+							LINKS_ID = "Frequency",
+							LINKS_Name = "Frequency",
+							INP_MaxScale = "10",
+							INP_Default = "1",
+							ICS_ControlPage = "Numbers",
+							INP_MinScale = "0",
+							INPID_InputControl = "ScrewControl",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = false,
+							ICD_Center = "1",
+							IC_Visible = true,
+						},
+						PreColor = {
+							LBLC_DropDownButton = true,
+							LINKS_ID = "PreColor",
+							LBLC_NumInputs = 7,
+							INP_Default = 1,
+							LINKS_Name = "Pre Color Perturbation",
+							ICS_ControlPage = "Numbers",
+							LINKID_DataType = "Number",
+							INP_UserData3 = 999,
+							INP_Passive = true,
+							INPID_InputControl = "LabelControl",
+							IC_Visible = true,
+						}
+					}
+				}
+			},
+		},
+		pEmitter1BlurOverLife2D = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				}
+			},
+		},
+		Camera3D1YOffset = BezierSpline {
+			SplineColor = { Red = 252, Green = 57, Blue = 47 },
+			KeyFrames = {
+				[22] = { 3.855, RH = { 35.3333333333333, 2.57 }, Flags = { Linear = true } },
+				[62] = { 0, LH = { 48.6666666666667, 1.285 }, Flags = { Linear = true } }
+			}
+		},
+		Camera3D1XOffset = BezierSpline {
+			SplineColor = { Red = 250, Green = 132, Blue = 49 },
+			KeyFrames = {
+				[22] = { 1.217, RH = { 35.3333333333333, 0.811333333333333 }, Flags = { Linear = true } },
+				[62] = { 0, LH = { 48.6666666666667, 0.405666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		Renderer3D1 = Renderer3D {
+			CustomData = {
+				ToolVersion = 2,
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 250, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				SceneInput = Input {
+					SourceOp = "Merge3D1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 148.5 } },
+		},
+		Perturb1 = PerturbGradient {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				}
+			},
+			Inputs = {
+				Value = Input {
+					Value = Gradient {
+						Colors = {
+							[0] = { 1, 1, 1, 1 }
+						}
+					},
+				},
+				RandomSeed = Input { Value = 6710, },
+				Strength = Input { Value = 0, },
+				Wobble = Input { Value = 5.04, },
+				Speed = Input { Value = 6.61, },
+			},
+		},
+		Camera3D1ZOffset = BezierSpline {
+			SplineColor = { Red = 254, Green = 207, Blue = 46 },
+			CtrlWZoom = false,
+			KeyFrames = {
+				[22] = { 4, RH = { 35.3333333333333, 3.73333333333333 }, Flags = { Linear = true } },
+				[62] = { 3.2, LH = { 48.6666666666667, 3.46666666666667 }, Flags = { Linear = true } }
+			}
+		},
+		Merge3D1 = Merge3D {
+			Inputs = {
+				SceneInput1 = Input {
+					SourceOp = "pRender1",
+					Source = "Output",
+				},
+				SceneInput2 = Input {
+					SourceOp = "Camera3D1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 148.5 } },
+		},
+		Merge1 = Merge {
+			Inputs = {
+				Background = Input {
+					SourceOp = "Background1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "Renderer3D1",
+					Source = "Output",
+				},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, 148.5 } },
+		},
+		Camera3D1 = Camera3D {
+			Inputs = {
+				["Transform3DOp.Translate.X"] = Input {
+					SourceOp = "Camera3D1XOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.Translate.Y"] = Input {
+					SourceOp = "Camera3D1YOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.Translate.Z"] = Input {
+					SourceOp = "Camera3D1ZOffset",
+					Source = "Value",
+				},
+				["Transform3DOp.UseTarget"] = Input { Value = 1, },
+				AoV = Input { Value = 19.2642683071402, },
+				["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 2, },
+				["MtlStdInputs.MaterialID"] = Input { Value = 2, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 82.5 } },
+		}
+	},
+	Frames = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			PresetName = "Default",
+			Left = 0,
+			Top = 27,
+			Width = 1680,
+			Height = 901,
+			ZoneInfo = {
+				["!Right"] = {
+				},
+				["!Left"] = {
+				},
+				AuxLeft = { Expanded = true },
+				Right = { Expanded = true, },
+				Left = { Expanded = false, },
+				AuxRight = { Expanded = true }
+			},
+			ViewInfo = {
+				Viewer1 = { Show = true, RatioY = 0.01, RatioX = 1, },
+				InnerLeft = {
+				},
+				MainSplit = {
+					RatioX = 100,
+					RatioY = 1.0037037037037,
+				},
+				CenterSplit = {
+					RatioX = 1,
+					RatioY = 100,
+				},
+				Viewer2 = { Show = true, RatioY = 0.01, RatioX = 1, },
+				Comments = { Show = false },
+				Time = { Show = true, RatioX = 100, },
+				InnerColumns = {
+					RatioX = 100,
+					RatioY = 1.9962962962963,
+				},
+				Keyframes = { Show = false, },
+				LayoutStrip = { Show = true, RatioX = 100, },
+				Inspector = { Show = true, RatioY = 1, RatioX = 100, },
+				ActionStrip = { Show = true, RatioX = 100, },
+				InnerRight = {
+				},
+				OuterColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Effects = { Show = false, },
+				Clips = { Show = false, },
+				Metadata = { Show = false, },
+				OuterLeft = {
+				},
+				ViewerSplit = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Nodes = { Show = true, RatioY = 100, RatioX = 1, },
+				OuterRight = {
+					RatioY = 100,
+					PixelX = 420,
+				},
+				MediaPool = { Show = false, },
+				Spline = { Show = false, }
+			},
+			Views = ordered() {
+				Effects = MultiView {
+					Active = "EffectView",
+					ViewList = ordered() {
+						EffectView = "EffectView"
+					},
+				},
+				Nodes = MultiView {
+					Active = "FlowView",
+					ViewList = ordered() {
+						FlowView = "FlowView"
+					},
+					FlowView = FlowView {
+						Flags = {
+							AutoHideNavigator = true,
+							GridSnap = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Horizontal",
+						PipeStyle = "Direct",
+						RootScale = 1,
+						RootOffset = { -75.9999, -52.2122 }
+					}
+				},
+				Keyframes = MultiView {
+					Active = "TimelineView",
+					ViewList = ordered() {
+						TimelineView = "TimelineView"
+					},
+					TimelineView = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = false,
+						ShowAnimatedToolsOnly = false,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 232, Bottom = 320 },
+							ScaleX = 0.278752436647173,
+							OffsetX = 121.25730994152,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "frame"
+						},
+						Spreadsheet = { LeftPos = 232, Visible = false }
+					}
+				},
+				Spline = MultiView {
+					Active = "SplineView",
+					ViewList = ordered() {
+						SplineView = "SplineEditorView"
+					},
+					SplineView = SplineEditorView {
+						LeftPos = 264,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = 189.2,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					}
+				},
+				Inspector = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Viewer1 = MultiView {
+					Active = "LeftView",
+					ViewList = ordered() {
+						LeftView = "PreviewContainer"
+					},
+				},
+				Viewer2 = MultiView {
+					Active = "RightView",
+					ViewList = ordered() {
+						RightView = "PreviewContainer"
+					},
+				},
+				Time = "TimeView",
+				ActionStrip = "ActionStripView",
+				LayoutStrip = "LayoutStripView"
+			},
+			Layout = {
+				{ ID = "LayoutStrip", FixedY = 36, Resolve = false, Flat = true },
+				{
+					{
+						{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+						{ ID = "Effects", RatioX = 1 },
+						Zone = "Left",
+						Rows = 2,
+						PaneID = "OuterLeft",
+						PixelX = 420
+					},
+					{
+						{
+							{
+								{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+								{ ID = "Effects", RatioX = 1 },
+								PaneID = "InnerLeft",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Left"
+							},
+							{
+								{
+									{ ID = "Viewer1", RatioY = 0.01, RatioX = 1 },
+									{ ID = "Viewer2", RatioX = 1 },
+									RatioY = 1,
+									Columns = 2,
+									PaneID = "ViewerSplit"
+								},
+								{ ID = "Time", FixedY = 83, Flat = true },
+								RatioX = 1,
+								Rows = 2
+							},
+							{
+								{ ID = "Inspector", RatioY = 1 },
+								{ ID = "Metadata", RatioY = 1, Fusion = false },
+								PaneID = "InnerRight",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Right"
+							},
+							RatioY = 2,
+							Columns = 3,
+							PaneID = "InnerColumns"
+						},
+						{ ID = "ActionStrip", FixedY = 50, Flat = true },
+						{
+							{ ID = "Nodes", RatioX = 1 },
+							{ ID = "Spline", RatioX = 1 },
+							{ ID = "Keyframes", RatioX = 1 },
+							RatioY = 1,
+							Columns = 3,
+							PaneID = "MainSplit"
+						},
+						{ Fusion = false, ID = "Clips", LARGE_FixedY = 160, MEDIUM_FixedY = 138, SMALL_FixedY = 110 },
+						RatioX = 1,
+						Rows = 4,
+						PaneID = "CenterSplit"
+					},
+					{
+						{ ID = "Inspector", RatioY = 1 },
+						{ ID = "Metadata", RatioY = 1, Fusion = false },
+						Zone = "Right",
+						Rows = 2,
+						PaneID = "OuterRight",
+						PixelX = 420
+					},
+					RatioY = 1,
+					Columns = 3,
+					PaneID = "OuterColumns"
+				},
+				RatioX = 1,
+				Rows = 2,
+				RatioY = 1
+			},
+			TopBar = {
+				Left = { "Left", "MediaPool", "Effects", "Clips", "Nodes", "Console" },
+				Right = { "Spline", "Keyframes", "Metadata", "Inspector", "Right" }
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Views = {
+				RightView = {
+					Viewer = {
+						LUTSelected = "",
+						DoD = {
+							Show = false
+						},
+						CheckerUnderlay = true,
+						Normalise = false,
+						ID = "GLImageViewer",
+						OverlayColor = 7,
+						Smooth = true,
+						SmoothThreshold = 1000000,
+						View360 = 0,
+						Region = {
+							Show = true,
+							Bottom = 0,
+							Auto = false,
+							Lock = false,
+							Enable = false,
+							Right = 1,
+							Left = 0,
+							Top = 1
+						},
+						ShowControls = true,
+						Layer = "",
+						ShowLabels = true,
+						OverlayOpacity = 100,
+						PixelGrid = false,
+						Channel = -1,
+						One2One = false,
+						AlphaOverlay = false,
+						ScaleMode = 1,
+						FollowActive = false
+					},
+					MaterialViewer = {
+						Options = {
+							LightPosition = 0,
+							SurfaceType = 0,
+							RendererType = "RendererOpenGL",
+							LightingEnabled = true,
+							TextureDepth = "int8"
+						},
+						Camera = {
+							Rotation = {
+								Y = -20,
+								X = 15,
+								Z = 0
+							}
+						}
+					},
+					["3DHistogram"] = {
+						Proxy = 4,
+						Log = false,
+						Transparent = true,
+						LoopLines = true,
+						DrawStyles = 0
+					},
+					CheckerUnderlay = false,
+					BgColor = -1,
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GLHistogramViewer",
+						MagnifierScale = 8
+					},
+					FullScreen = false,
+					QuadLayoutName = "4-Way",
+					AlwaysOnTop = true,
+					QuadView = false,
+					Controls = {
+						Hiding = 0,
+						Autofade = false,
+						FadeSpeed = 1,
+						SnapPixel = false,
+						Opacity = 100,
+						FadeDelay = 2000,
+						SnapPixelMode = 0,
+						StippleHidden = true
+					},
+					Dither = false,
+					Vectorscope = {
+						DrawStyles = 1,
+						OneLine = false,
+						Color = false,
+						LoopLines = true,
+						SubSampling = 4,
+						ColorSpace = 0
+					},
+					Guides = {
+						Show = false,
+						Center = true,
+						SafeTitle = true,
+						SafeImage = true,
+						Film = false,
+						FrameAspect = "Default"
+					},
+					Toolbar = {
+						Style = 0,
+						Size = 0
+					},
+					View3D = {
+						Options = {
+							SelectionBoxStipple = 65520,
+							ShowTextureMemory = false,
+							Shadows = false,
+							ShowLights = true,
+							Lighting = false,
+							ShowUVTangentVectors = false,
+							ShowPointClouds = true,
+							Grid = true,
+							ShowFastLabel = false,
+							ShowVertexNormals = false,
+							ShowMatteObjects = false,
+							DefaultLight = true,
+							Culling = false,
+							ShowCameras = true,
+							Wireframe = false,
+							SelectionBoxStippleHidden = 52416
+						},
+						CamLeft = {
+							Rotation = {
+								Y = 90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamPersp = {
+							Rotation = {
+								Y = -2.80000019073486,
+								X = 1.20001125335693,
+								Z = 0
+							},
+							Scale = 1.55114579200745,
+							Position = {
+								Y = 0.0341979824006557,
+								X = -0.0711875185370445,
+								Z = -0.151685416698456
+							}
+						},
+						CamRight = {
+							Rotation = {
+								Y = -90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						TextureDepth = "int8",
+						CamFront = {
+							Rotation = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						SortMethod = "ZBuffer",
+						OverscanMode = 0,
+						CustomOverscan = 1.37,
+						CamTop = {
+							Rotation = {
+								Y = 0,
+								X = 90,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CameraName = "Perspective"
+					},
+					VideoOut = false,
+					Histogram = {
+						DrawStyles = 0,
+						Channels = 7,
+						Scale = 0,
+						Transparent = false
+					},
+					Mirror = {
+						Enable = false,
+						StereoMethod = "Auto",
+						Device = ""
+					},
+					Waveform = {
+						OneLine = false,
+						SubSampling = 4,
+						Mode = 0,
+						LoopLines = true,
+						ColorSpace = 0
+					},
+					ShowClipFrameNumbers = true,
+					BufferLUT = {
+						Enable = false,
+						Selected = "",
+						Plugin = "FusionViewLUT"
+					},
+					Stereo = {
+						Enabled = false,
+						Swap = false,
+						AnaglyphMethod = "Color",
+						StackMethod = "Horizontal",
+						OffsetX = {
+							QuadB = 0,
+							Stack = 0
+						},
+						Stack = false,
+						DisplayMethod = "Quad Buffer",
+						OffsetY = {
+							QuadB = 0,
+							Stack = 0
+						},
+						ABSource = false,
+						AnaglyphColor = "Red/Cyan"
+					},
+					OpToolbar = {
+						Style = 0,
+						Size = 0
+					}
+				},
+				LeftView = {
+					Viewer = {
+						LUTSelected = "",
+						DoD = {
+							Show = false
+						},
+						CheckerUnderlay = true,
+						Normalise = false,
+						ID = "GLImageViewer",
+						OverlayColor = 7,
+						Smooth = true,
+						SmoothThreshold = 1000000,
+						View360 = 0,
+						Region = {
+							Show = true,
+							Top = 1,
+							Auto = false,
+							Bottom = 0,
+							Enable = false,
+							Right = 1,
+							Left = 0,
+							Lock = false
+						},
+						OverlayOpacity = 100,
+						Layer = "",
+						ShowLabels = true,
+						ScaleMode = 0,
+						PixelGrid = false,
+						Channel = -1,
+						AlphaOverlay = false,
+						One2One = false,
+						ShowControls = true,
+						FollowActive = false
+					},
+					MaterialViewer = {
+						Options = {
+							LightPosition = 0,
+							SurfaceType = 0,
+							RendererType = "RendererOpenGL",
+							TextureDepth = "int8",
+							LightingEnabled = true
+						},
+						Camera = {
+							Rotation = {
+								Y = -20,
+								X = 15,
+								Z = 0
+							}
+						}
+					},
+					["3DHistogram"] = {
+						Proxy = 4,
+						Log = false,
+						Transparent = true,
+						LoopLines = true,
+						DrawStyles = 0
+					},
+					CheckerUnderlay = false,
+					BgColor = -1,
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GLHistogramViewer",
+						MagnifierScale = 8
+					},
+					FullScreen = false,
+					QuadLayoutName = "4-Way",
+					AlwaysOnTop = true,
+					View3D = {
+						Options = {
+							SelectionBoxStipple = 65520,
+							ShowTextureMemory = false,
+							SelectionBoxStippleHidden = 52416,
+							ShowLights = true,
+							Lighting = false,
+							ShowUVTangentVectors = false,
+							ShowPointClouds = true,
+							Grid = true,
+							ShowVertexNormals = false,
+							ShowFastLabel = false,
+							ShowMatteObjects = false,
+							DefaultLight = true,
+							Culling = false,
+							ShowCameras = true,
+							Wireframe = false,
+							Shadows = false
+						},
+						CamLeft = {
+							Rotation = {
+								Y = 90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamPersp = {
+							Rotation = {
+								Y = 0,
+								X = 30,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamRight = {
+							Rotation = {
+								Y = -90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamTop = {
+							Rotation = {
+								Y = 0,
+								X = 90,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamFront = {
+							Rotation = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						TextureDepth = "int8",
+						OverscanMode = 0,
+						CustomOverscan = 1.37,
+						SortMethod = "ZBuffer",
+						CameraName = "Perspective"
+					},
+					Controls = {
+						Hiding = 0,
+						Autofade = false,
+						FadeSpeed = 1,
+						SnapPixelMode = 0,
+						FadeDelay = 2000,
+						Opacity = 100,
+						SnapPixel = false,
+						StippleHidden = true
+					},
+					Dither = false,
+					Vectorscope = {
+						DrawStyles = 1,
+						OneLine = false,
+						Color = false,
+						LoopLines = true,
+						SubSampling = 4,
+						ColorSpace = 0
+					},
+					Guides = {
+						Show = false,
+						Center = true,
+						SafeTitle = true,
+						FrameAspect = "Default",
+						Film = false,
+						SafeImage = true
+					},
+					Toolbar = {
+						Style = 0,
+						Size = 0
+					},
+					QuadView = false,
+					BufferLUT = {
+						Enable = false,
+						Selected = "",
+						Plugin = "FusionViewLUT"
+					},
+					Histogram = {
+						DrawStyles = 0,
+						Transparent = false,
+						Scale = 0,
+						Channels = 7
+					},
+					ShowClipFrameNumbers = true,
+					Waveform = {
+						OneLine = false,
+						SubSampling = 4,
+						Mode = 0,
+						LoopLines = true,
+						ColorSpace = 0
+					},
+					Mirror = {
+						Enable = false,
+						StereoMethod = "Auto",
+						Device = ""
+					},
+					VideoOut = false,
+					Stereo = {
+						Enabled = false,
+						Swap = false,
+						AnaglyphMethod = "Color",
+						Stack = false,
+						OffsetX = {
+							QuadB = 0,
+							Stack = 0
+						},
+						ABSource = false,
+						DisplayMethod = "Quad Buffer",
+						StackMethod = "Horizontal",
+						OffsetY = {
+							QuadB = 0,
+							Stack = 0
+						},
+						AnaglyphColor = "Red/Cyan"
+					},
+					OpToolbar = {
+						Style = 0,
+						Size = 0
+					}
+				},
+				View1 = {
+					Controls = {
+						SnapPixel = false
+					},
+					PrevCtrlInactiveColor = 4278255360,
+					PickW = 1,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = false,
+							LUTPlugin = "FusionViewLUT",
+							FitMarginY = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							NearZ = 0
+						}
+					},
+					PickH = 1,
+					PrevCtrlActiveColor = 4278190335,
+					AlwaysOnTop = false,
+					FullScreen = false
+				},
+				View2 = {
+					PickH = 1,
+					PickW = 1,
+					AlwaysOnTop = false,
+					FullScreen = false
+				}
+			},
+			Network = {
+				SlaveMemOverride = true,
+			},
+			Paths = {
+				Map = {
+				},
+				EnableReverseMapping = true
+			},
+			FrameFormat = {
+				GuideRatio = 1.77777777777778,
+			},
+			LastFile = "/Users/martinhusmann/Documents/Media/Project/2021-Experimental/pexels-allan-mas-5362370.mp4",
+			Unsorted = {
+				GlobalEnd = 250,
+				RenderSettings = {
+					Configs = {
+						Preview = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						},
+						Final = {
+							StepRender = false,
+							PriorityClasses = "all",
+							ShowRenderNodes = false,
+							StepSize = 5,
+							SizeType = 1,
+							CustomHeight = 160,
+							CustomAspect = true,
+							CustomWidth = 200,
+							MotionBlur = true,
+							UpdateMode = "Some",
+							UseNetwork = false,
+							Quality = true
+						}
+					},
+					PreviewConfig = "Preview",
+					CurrentConfig = "Final"
+				}
+			},
+			Tweaks = {
+				GPU = {
+					Enable = 1,
+				}
+			},
+			FreehandLUTPrecDlg = {
+				Window = {
+					Left = 1329,
+					Top = 74
+				}
+			},
+			LastLUTFile = "/Users/martinhusmann/Documents/Media/Project/2021-Experimental/CStaleShaper/MidLow.alut",
+			QuickTime = {
+			},
+		}
+	},
+}
+
