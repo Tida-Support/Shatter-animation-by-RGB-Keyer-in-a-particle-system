@@ -18,5 +18,18 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 - Flicker Intensity: Enables Random Flicker Effect
 - Frequency: Speed of Flicker (the smaller the faster the changes)
 
+<img src="https://github.com/Tida-Support/Shatter-animation-by-RGB-Keyer-in-a-particle-system/edit/main/td_ShatterX.png" width="500">
+
 ## Videos
+
 ## Installation
+
+
+## Macro Controls
+<img src="https://github.com/Tida-Support/Curved-Shapes-for-BMD-Fusion/blob/main/CurvedShapesControls.png" width="500">
+
+
+## Video
+[![Curved Arrow](https://img.youtube.com/vi/OfnXWhvGQFg/0.jpg)](https://www.youtube.com/watch?v=OfnXWhvGQFg)
+[![Curved Arrow](https://img.youtube.com/vi/6INo5jxwMTU/0.jpg)](https://www.youtube.com/watch?v=6INo5jxwMTU)
+[![Curved Arrow](https://img.youtube.com/vi/d3qIP1O7GM8/0.jpg)](https://www.youtube.com/watch?v=d3qIP1O7GM8)
