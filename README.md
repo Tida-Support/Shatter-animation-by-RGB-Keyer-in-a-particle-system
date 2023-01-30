@@ -11,7 +11,7 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 - Delta: Number of Frames between Finish of Piece Build Up procedure and subsequent Start of Animation (Rest Time)
 - Aspect Ratio: Set the Aspect Ratio of the Mask to the Aspect Ratio of the Image
 - Random Seed: Changes sequences randomly   
-- Speed: Overall speed of expansion and spining process
+- Speed: Overall speed of expansion and spinning process
 - XY-Expansion/Z-Forward/Z-Backward/Spin: Speed of each movement
 - Directional Force: Gravitational Forces
 - Direction: Direction of Force (-90: downwards, 90: upwards)
