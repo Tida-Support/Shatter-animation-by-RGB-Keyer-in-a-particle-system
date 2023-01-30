@@ -22,6 +22,7 @@ The Shatter effect works by means of the td_ShatterX.Setting Macro, which contai
 
 ## More Information
 https://www.steakunderwater.com/wesuckless/viewtopic.php?p=42724#p42724
+https://www.steakunderwater.com/wesuckless/viewtopic.php?t=5182
 
 ## Videos
 [![Curved Arrow](https://img.youtube.com/vi/OfnXWhvGQFg/0.jpg)](https://www.youtube.com/watch?v=OfnXWhvGQFg)
